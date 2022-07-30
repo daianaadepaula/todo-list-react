@@ -1,21 +1,22 @@
-
+import { useState } from 'react'
 
 function App (){
-    const tasks = ['Comprar pão', 'Finalizar módulo de JavaScript']
+    const [tasks, setTasks] = useState([])
+    const [inputValue, setinputValue] = useState()     
 
     function inputChange (event) {
-        const task = event.target.value
-        console.log(task)
+        setinputValue (event.target.value)        
     }
 
     function buttonClick(){
-
+        setTasks([ ...tasks, inputValue])
     }
+    
 
     return (
         <div>
             <input placeholder="Digite a sua tarefa" onChange={inputChange} />
-            <button>Adicionar Tarefa</button>
+            <button onClick={buttonClick}>Adicionar Tarefa</button>
 
             <ul>
                 {
@@ -24,6 +25,7 @@ function App (){
                     ))
                 }
             </ul>
+            
         </div>
     )
 
