@@ -20,8 +20,8 @@ function App (){
 
             <ul>
                 {
-                    tasks.map( item => (
-                        <li>{item}</li>
+                    tasks.map( (item, index) => (
+                        <li key={index}>{item}</li>
                     ))
                 }
             </ul>
