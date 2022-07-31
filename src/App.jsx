@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Item, Container } from './components/styles'
 
 function App (){
     const [tasks, setTasks] = useState([])
@@ -14,19 +15,19 @@ function App (){
     
 
     return (
-        <div>
+        <Container>
             <input placeholder="Digite a sua tarefa" onChange={inputChange} />
             <button onClick={buttonClick}>Adicionar Tarefa</button>
 
             <ul>
                 {
                     tasks.map( (item, index) => (
-                        <li key={index}>{item}</li>
+                        <Item key={index}>{item}</Item>
                     ))
                 }
             </ul>
             
-        </div>
+        </Container>
     )
 
 }
