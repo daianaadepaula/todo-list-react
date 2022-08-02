@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import { Item, Container } from './components/styles'
+import { useState } from "react";
+import { Item, Container, TodoList, Input, Button, List } from "./components/styles";
 
-function App (){
-    const [tasks, setTasks] = useState([])
-    const [inputValue, setinputValue] = useState()     
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const [inputValue, setinputValue] = useState();
 
-    function inputChange (event) {
-        setinputValue (event.target.value)        
-    }
+  function inputChange(event) {
+    setinputValue(event.target.value);
+  }
 
-    function buttonClick(){
-        setTasks([ ...tasks, inputValue])
-    }
-    
+  function buttonClick() {
+    setTasks([...tasks, inputValue]);
+  }
 
-    return (
-        <Container>
-            <input placeholder="Digite a sua tarefa" onChange={inputChange} />
-            <button onClick={buttonClick}>Adicionar Tarefa</button>
+  return (
+    <Container>
+      <TodoList>
+        <Input placeholder="Digite a sua tarefa" onChange={inputChange} />
+        <Button onClick={buttonClick}>Adicionar Tarefa</Button>
 
-            <ul>
-                {
-                    tasks.map( (item, index) => (
-                        <Item key={index}>{item}</Item>
-                    ))
-                }
-            </ul>
-            
-        </Container>
-    )
-
+        <List>
+          {tasks.map((item, index) => (
+            <Item key={index}>{item}</Item>
+          ))}
+        </List>
+      </TodoList>
+    </Container>
+  );
 }
 
-export default App
+export default App;
