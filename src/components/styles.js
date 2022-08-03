@@ -62,4 +62,9 @@ export const Item = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:hover{
+      background: #E0FFFF;
+      color: #4169E1;
+    }
 `;
