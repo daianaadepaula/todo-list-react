@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
    width: 100vw;
    height: 100vh;
-   background: linear-gradient(90deg, #383838 0%, #000000 81.25%);
+   background: linear-gradient(90deg, #48D1CC 0%, #008B8B	 81.25%);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -50,10 +50,10 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-    background: #E4E4E4;
+    background: ${(props) => props.checked ? '#E0FFFF' : '#E4E4E4'};
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    color: #000000;
+    color: ${(props) => props.checked ? '#4169E1' : '#000000'}  ;
     font-size: 15px;
     font-weight: 400;
     height: 60px;
@@ -61,10 +61,20 @@ export const Item = styled.li`
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+	padding: 0 10px;
+`;
 
-    &:hover{
-      background: #E0FFFF;
-      color: #4169E1;
-    }
+export const Icon = styled.div`
+	color: ${(props) => props.checked ? '#4169E1' : '#000000'};
+    font-size: 22px;
+	cursor: pointer;
+
+	&:hover{
+		opacity: 0.8;
+	}
+
+	&:active{
+		opacity: 0.6;
+	}
 `;
